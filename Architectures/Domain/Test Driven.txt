@@ -1,0 +1,10 @@
+Test Driven Development
+	A development strategy that ensures that unit tests are created before the implementation.
+
+Rules
+	No unit tests can be written or modified unless all existing tests pass.
+	No unit tests can be written without a supporting requirement.
+	No implementation code can be written unless a unit test fails.
+	If possible, implementation code should be written in a way that passes the test, but does not meet the requirement.  This is to find and eliminate edge cases that may be missed by the unit tests.
+	When no more edge cases can be found, both the unit tests and the implementation code are considered complete.
+	Implementation code can only be refactored when all unit tests are complete and pass.

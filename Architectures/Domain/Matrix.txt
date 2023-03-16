@@ -1,0 +1,14 @@
+Matrix Architecture
+	An architecture that places all logic, functionality and virtual software representations of real-world objects inside of a virtual sandbox.
+
+Rules
+	All real-world components of the system, including users, must be replicated virtually in the sandbox in software.
+	In addition to users, all physical hardware must be replicated inside of the sandbox.  This includes:
+		Monitors, screens, desktop applications, web pages, web browser applications, disk drives, keyboards, mice, network adapters, switches, internet gateways, web services, databases, etc.
+
+Summary
+	The sandbox provides a self-contained environment that can be designed and tested without any need for real-world hardware or users.
+	Applications and libraries can be created to link virtual sandbox components to real-world components.
+	These applications/libraries ensure that events that occur in the real world are properly triggered in the sandbox.
+	They also ensure that real world devices are notified when observable changes occur in the sandbox.
+	As the sandbox components have no awareness or dependency of any real-world hardware, it is possible to reuse these virtual components with on any platform.

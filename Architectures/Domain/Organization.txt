@@ -1,0 +1,38 @@
+Organizational Architecture
+	Separates domain responsibilities for software components in a similar fasion to employees within departments in a company or organization.
+
+Overview
+	System design changes based on the overall complexity and size.
+	This allows the system to change as it grows from a small application to an enterprise solution.
+	It is important to choose the appropriate design based on the size of the system.
+
+Small Utilities
+	Smaller applications with one or two responsibilities do not need multiple domains, just as small companies with one or two employees do not need departments.
+
+Mid-sized Applications
+	Like companies with 5-10 employees, mid-sized applications will need coordination and management in order to work as a single entity with a common goal and set of priorities.
+	
+Large Systems
+	Like companies with 20-100 employees, large systems will need separate departments (domains) in order to optimize tools, procedures and terminology.
+	Often, this requires multiple levels of management and communication to maintain a single corporate strategy.
+
+Enterprise Solutions
+	Like global companies with 5000 employees or more, it is often necessary to organize systems by country or region.
+	Each geographic area likely has its own set of priorities and regulations, while still operating and reporting information as a single global entity.
+
+Management vs Specialist
+	Software systems that handle multiple responsibilities require both separation and coordination.
+	As with larger companies and organizations, components within a large system can be separated into components that do actual work, and components that coordinate other compoennts.
+	Components that manage other components normally do not perform any specific functionality, and instead rely on other components to accomplish tasks.
+	This approach minimizes dependency and coupling between specialist components that are responsible for doing specific work.
+	Specialist components are designed to perform one task, or interface with one system component or external service.
+	Specialist components have a deep understanding of how the work is accomplished, while management components are responsible for coordinating when the work should be done.
+
+Events vs Commands
+	In addition to perforing tasks, specialist components are also responsible for notifying the system when a specific real-world event occurs.
+	In order to avoid dependencies on other components, these events should be broadcast in a way that allows any component to react to the event.
+	As management components are not responsible for detecting events, they are limited to waiting for events to be broadcast by one or more components, and then sending commands to one or more compeonts to do additional work.
+
+Multiple Domains
+	Once a system has grown to the point where it spans multiple domains, a new, higher level of cross-domain management component is introduced.
+	These cross-domain management components are responsible for listening for events from one domain, and translating those events into commands in one or more other domains.

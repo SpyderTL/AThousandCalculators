@@ -1,0 +1,47 @@
+Overview
+	Create a calculator application that will allow the user to perform simple arithmetic calculations using a physical calculator-like user interface.
+
+User Interface
+	The design of the user interface should have a similar appearance to a physical hand-held calculator.
+	It should have numeric 0-9 buttons, plus, minus, multiply and divide buttons, as well as an equals button.
+	It should have a Clear All (C) button, and a Clear Entry (CE) button.
+	It should have a Square Root button, a Percent button, a Negate (+/-) button, and an inverse (1/x) button.
+	It should have a numeric display area to show the result value.
+
+Behavior
+	Startup
+		Upon startup
+			The current value should be set to zero
+			Update display with the current value
+	Modes
+		Entry
+			Numeric Buttons
+				In entry mode, pressing the numeric buttons will
+					Append the corresponding value to the end of the current value
+					Update the display with the new current value
+			Arithmetic Buttons
+				Pressing an arithmetic button (plus, minus, multiply, divide) will
+					Store the corresponding operation
+					Perform the previous operation, if any
+					Display the result value
+					Switch to Entry mode
+			Equals Button
+				Pressing the equals button will
+					Perform the previous operation, if any
+					Switch to Result mode
+		Result
+			Numeric Buttons
+				In result mode, pressing a numeric button will
+					Reset the current value to zero
+					Reset the result value to zero
+					Append the corresponding value to the end of the current value
+					Display the current value
+					Switch to Entry mode
+		Any Mode
+			Calculate Buttons
+				Pressing a calculate button (Square Root, Inverse, Negate, Percent) will
+					Perform the corresponding operation on the current value
+					Display the current value
+					Switch to Result mode
+			
+
