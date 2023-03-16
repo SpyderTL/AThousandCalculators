@@ -52,6 +52,7 @@ namespace Calculator.Tests
 			Assert.Multiple(() =>
 			{
 				Assert.That(Matrix.Calculator.Display, Is.EqualTo("3"));
+				Assert.That(Matrix.Calculator.Function, Is.EqualTo(Matrix.Calculator.Buttons.Plus));
 				Assert.That(Matrix.Calculator.Mode, Is.EqualTo(Matrix.Calculator.Modes.Result));
 			});
 
@@ -60,6 +61,7 @@ namespace Calculator.Tests
 			Assert.Multiple(() =>
 			{
 				Assert.That(Matrix.Calculator.Display, Is.EqualTo("1"));
+				Assert.That(Matrix.Calculator.Function, Is.Null);
 				Assert.That(Matrix.Calculator.Mode, Is.EqualTo(Matrix.Calculator.Modes.Entry));
 			});
 
@@ -70,6 +72,44 @@ namespace Calculator.Tests
 			Assert.Multiple(() =>
 			{
 				Assert.That(Matrix.Calculator.Display, Is.EqualTo("3"));
+				Assert.That(Matrix.Calculator.Function, Is.EqualTo(Matrix.Calculator.Buttons.Plus));
+				Assert.That(Matrix.Calculator.Mode, Is.EqualTo(Matrix.Calculator.Modes.Result));
+			});
+		}
+
+		[Test]
+		public void Result_ArithmeticButtons()
+		{
+			Matrix.Calculator.Reset();
+
+			Matrix.Calculator.Press(Matrix.Calculator.Buttons.Three);
+			Matrix.Calculator.Press(Matrix.Calculator.Buttons.Multiply);
+			Matrix.Calculator.Press(Matrix.Calculator.Buttons.Three);
+			Matrix.Calculator.Press(Matrix.Calculator.Buttons.Equals);
+
+			Assert.Multiple(() =>
+			{
+				Assert.That(Matrix.Calculator.Display, Is.EqualTo("9"));
+				Assert.That(Matrix.Calculator.Function, Is.EqualTo(Matrix.Calculator.Buttons.Multiply));
+				Assert.That(Matrix.Calculator.Mode, Is.EqualTo(Matrix.Calculator.Modes.Result));
+			});
+
+			Matrix.Calculator.Press(Matrix.Calculator.Buttons.Divide);
+			Matrix.Calculator.Press(Matrix.Calculator.Buttons.Three);
+
+			Assert.Multiple(() =>
+			{
+				Assert.That(Matrix.Calculator.Display, Is.EqualTo("3"));
+				Assert.That(Matrix.Calculator.Function, Is.EqualTo(Matrix.Calculator.Buttons.Divide));
+				Assert.That(Matrix.Calculator.Mode, Is.EqualTo(Matrix.Calculator.Modes.Entry));
+			});
+
+			Matrix.Calculator.Press(Matrix.Calculator.Buttons.Equals);
+
+			Assert.Multiple(() =>
+			{
+				Assert.That(Matrix.Calculator.Display, Is.EqualTo("3"));
+				Assert.That(Matrix.Calculator.Function, Is.EqualTo(Matrix.Calculator.Buttons.Divide));
 				Assert.That(Matrix.Calculator.Mode, Is.EqualTo(Matrix.Calculator.Modes.Result));
 			});
 		}

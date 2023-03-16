@@ -63,14 +63,27 @@
 
 		private static void PressArithmetic(Buttons button)
 		{
-			if (Function != null)
-				ExecuteFunction();
-			else
-				Result = Current;
+			switch (Mode)
+			{
+				case Modes.Entry:
+					if (Function != null)
+						ExecuteFunction();
+					else
+						Result = Current;
 
-			Function = button;
+					Function = button;
 
-			Current = 0;
+					Current = 0;
+					break;
+
+				case Modes.Result:
+					Function = button;
+
+					Current = 0;
+
+					Mode = Modes.Entry;
+					break;
+			}
 		}
 
 		private static void ExecuteFunction()
@@ -90,6 +103,7 @@
 					Result *= Current;
 					break;
 				case Buttons.Divide:
+					// TODO: Divide by zero
 					Result /= Current;
 					break;
 			}
@@ -109,6 +123,7 @@
 
 				case Modes.Result:
 					Result = 0;
+					Function = null;
 					Current = (decimal)button;
 					Display = Current.ToString("G0");
 					Mode = Modes.Entry;

@@ -22,6 +22,9 @@ namespace Calculator.WinForms
 			Form.EightButton.Click += EightButton_Click;
 			Form.NineButton.Click += NineButton_Click;
 			Form.PlusButton.Click += PlusButton_Click;
+			Form.MinusButton.Click += MinusButton_Click;
+			Form.MultiplyButton.Click += MultiplyButton_Click;
+			Form.DivideButton.Click += DivideButton_Click;
 
 			Matrix.Calculator.Reset();
 
@@ -40,6 +43,27 @@ namespace Calculator.WinForms
 		private static void PlusButton_Click(object? sender, EventArgs e)
 		{
 			Matrix.Calculator.Press(Matrix.Calculator.Buttons.Plus);
+
+			Form.DisplayTextBox.Text = Matrix.Calculator.Display;
+		}
+
+		private static void MinusButton_Click(object? sender, EventArgs e)
+		{
+			Matrix.Calculator.Press(Matrix.Calculator.Buttons.Minus);
+
+			Form.DisplayTextBox.Text = Matrix.Calculator.Display;
+		}
+
+		private static void MultiplyButton_Click(object? sender, EventArgs e)
+		{
+			Matrix.Calculator.Press(Matrix.Calculator.Buttons.Multiply);
+
+			Form.DisplayTextBox.Text = Matrix.Calculator.Display;
+		}
+
+		private static void DivideButton_Click(object? sender, EventArgs e)
+		{
+			Matrix.Calculator.Press(Matrix.Calculator.Buttons.Divide);
 
 			Form.DisplayTextBox.Text = Matrix.Calculator.Display;
 		}
